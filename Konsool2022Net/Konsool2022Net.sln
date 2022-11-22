@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Konsool2022Net", "Konsool2022Net.csproj", "{A60FCC35-C5EB-4D55-84F2-AAEABE3332BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A60FCC35-C5EB-4D55-84F2-AAEABE3332BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A60FCC35-C5EB-4D55-84F2-AAEABE3332BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A60FCC35-C5EB-4D55-84F2-AAEABE3332BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A60FCC35-C5EB-4D55-84F2-AAEABE3332BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4D68CF1C-589A-4F4E-87B0-DC5A93A7B2DC}
+	EndGlobalSection
+EndGlobal
