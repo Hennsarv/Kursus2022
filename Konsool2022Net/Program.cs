@@ -7,7 +7,7 @@ using sql = System.Data.SqlClient;
 
 namespace Konsool2022Net
 {
-    internal class Program
+    public static class Program
     {
         static void Main(string[] args)
         {
@@ -38,8 +38,8 @@ namespace Konsool2022Net
             arv = (4 + 7) * (3 + 8); // 4 7 + 3 8 + * arv =
             d = Math.Sqrt(Math.PI * 3) + 100;
 
-            int a;
-            int b;
+            int a = 7;
+            int b = --a ;
 
             Console.WriteLine( (a = 7) * (a = 8));
             Console.WriteLine(a);
@@ -60,11 +60,49 @@ namespace Konsool2022Net
                 "jääme koju"
 
 
-                ); 
+                );
+
+            // stringid - tekstid
+            string nimi = "henn";
+
+            Console.WriteLine( $@"{nimi} on ""tore"" poiss eksju" );
+
+            string folder = @"C:\Users\sarvi\source\repos\Hennsarv\Kursus2022\Konsool2022Net";
+
+            Console.WriteLine("{0} on tore poiss", nimi);
+            Console.WriteLine($"{nimi.ToUpper()} on tore poiss");
+
+            string tulemus = String.Format("{0} on tore poiss", nimi);
+            string tulemus2 = $"{nimi.ToUpper()} on tore poiss";
+
+            Console.WriteLine("x".ToProper());
+
+            nimi = "Oliver Bärret IV";
+            var n = nimi.Split(' ');
+            Console.WriteLine(n[0]);
+
+            string[] nimekiri = { "Ants", "Peeter", "Joosep" };
+            string koos = string.Join("; ", arvud2);
+
+            Console.WriteLine(koos);
+
+
+
+
 
 
             // 
 
+        }
+
+        public static string ToProper(this string x)
+        {
+            return
+                x == string.Empty ? x :
+
+                x.Substring(0,1).ToUpper()
+                +
+                    x.Substring(1).ToLower();
         }
     }
 }
