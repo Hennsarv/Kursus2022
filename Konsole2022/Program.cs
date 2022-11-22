@@ -4,7 +4,7 @@
     {
         static void Main(string[] args) // lisame kommentaari
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("Hello, Ilmamaa!");
             Console.WriteLine("Koolitusel tehtud täiendus");
         }
 
