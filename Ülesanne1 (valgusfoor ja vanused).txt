@@ -1,0 +1,26 @@
+Harjutamiseks tee iseseisvalt kaks programmi:
+
+Valgusfoor:
+
+	Programm küsib mis värvi tuli on valgusfooris
+	kui on punane - ütleb "oota" ja küüsib uuesti
+	kui on kollane - ütleb oota rohelist ja küsib uuesti
+	kui on roheline - ütleb sõida ja lõpetab töö
+	kui on miskit muud ütleb, et sa oled värvipime ja küsib uuesti
+
+	Hint! if (tuli.Equals("punane",StringComparison.CurrentCultureIgnoreCase))
+
+
+Vanused
+
+	programm küsib kuni 10 nime (seni kuni vastad tühja enteriga või kui 10 täis saab) (võid esialgu võtta vähem)
+	seejärel küsib kui vana on nimi1, nimi2 jne ja jätab meelde
+	seejärel arvutab
+		keskmine vanus on ...
+		kõige vanem on ...
+		kõige noorem on ... (tema läheb poodi järele)
+
+kasuta funktsioone-meetodeid
+	Console.Write
+	Console.WriteLine    NB! proovi ja katseta, mis nende erinevus on
+	Console.ReadLine

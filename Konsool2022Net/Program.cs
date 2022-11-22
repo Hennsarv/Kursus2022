@@ -94,6 +94,9 @@ namespace Konsool2022Net
 
             Console.WriteLine("mai-liis sarv".ToProper2());
 
+            string tuli = "punane";
+            if (tuli.Equals("punane",StringComparison.CurrentCultureIgnoreCase))
+
         }
             
         public static string ToProper(this string nimi)
