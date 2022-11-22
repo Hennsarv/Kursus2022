@@ -7,5 +7,7 @@
             Console.WriteLine("Hello, World!");
             Console.WriteLine("Koolitusel tehtud täiendus");
         }
+
+        static void Uus() { } 
     }
 }
