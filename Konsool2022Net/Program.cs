@@ -86,23 +86,18 @@ namespace Konsool2022Net
 
             Console.WriteLine(koos);
 
-
-
-
-
-
-            // 
+            // Kõike seda meenutades - kirjuta üks funktsioon
+            // ToProper(string x)
+            // mis paneb nime kõik tükid üigesse Suur Väike kujule
+            // ja siis mõtle välja, mis tuleks teha, et sidekriipsuga nimed
+            // ka alluksid sellele Mai-Liis ja Pille-Riin
 
         }
+        //public static string ToProper(this string x)
+        //{
+        //    if (x == string.Empty) return x;
+            
 
-        public static string ToProper(this string x)
-        {
-            return
-                x == string.Empty ? x :
-
-                x.Substring(0,1).ToUpper()
-                +
-                    x.Substring(1).ToLower();
-        }
+        //}
     }
 }
