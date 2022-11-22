@@ -75,7 +75,7 @@ namespace Konsool2022Net
             string tulemus = String.Format("{0} on tore poiss", nimi);
             string tulemus2 = $"{nimi.ToUpper()} on tore poiss";
 
-            Console.WriteLine("x".ToProper());
+            
 
             nimi = "Oliver Bärret IV";
             var n = nimi.Split(' ');
@@ -92,12 +92,29 @@ namespace Konsool2022Net
             // ja siis mõtle välja, mis tuleks teha, et sidekriipsuga nimed
             // ka alluksid sellele Mai-Liis ja Pille-Riin
 
-        }
-        //public static string ToProper(this string x)
-        //{
-        //    if (x == string.Empty) return x;
-            
+            Console.WriteLine("mai-liis sarv".ToProper2());
 
-        //}
+        }
+            
+        public static string ToProper(this string nimi)
+        {
+            if(nimi == string.Empty) return string.Empty;
+            var nimed = nimi.Replace("-","- ").Split(' ');
+            for (int i = 0; i < nimed.Length; i++)
+            {
+                nimed[i] = nimed[i] == string.Empty ? string.Empty :
+                    nimed[i].Substring(0,1).ToUpper() + nimed[i].Substring(1).ToLower();
+            }
+            return string.Join(" ", nimed).Replace("- ","-") ;
+        }
+
+        public static string ToProper2(this string nimi) =>
+            nimi == string.Empty ? string.Empty :
+            string.Join(" ",
+            nimi
+            .Replace("-", "- ")
+            .Split(' ')
+            .Select(x => x.Substring(0, 1).ToUpper() + x.Substring(1).ToLower())
+            ).Replace("- ", "-");
     }
 }
