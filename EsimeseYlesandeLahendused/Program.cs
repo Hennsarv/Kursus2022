@@ -105,6 +105,7 @@ namespace EsimeseYlesandeLahendused
             Console.WriteLine($"noorim on {nimed[noorim]} ta on {vanused[noorim]} aastane");
             Console.WriteLine($"vanim on {nimed[vanim]} ta on {vanused[vanim]} aastane");
 
+
         }
     }
 }
