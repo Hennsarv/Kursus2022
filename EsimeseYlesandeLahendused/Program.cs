@@ -91,8 +91,19 @@ namespace EsimeseYlesandeLahendused
             else
             Console.WriteLine("rahvast pole");
 
-            Console.WriteLine(vanused.Where(x => x != 0).Average());
+            //Console.WriteLine(vanused.Where(x => x != 0).Average());
 
+            int max = vanused[0]; int vanim = 0;
+            int min = vanused[0]; int noorim = 0;
+
+            for (int i = 1; i < inimesi; i++)
+            {
+                if (vanused[i] > max) { max = vanused[i]; vanim = i; }
+                if (vanused[i] < min) { min = vanused[i]; noorim = i; }
+            }
+
+            Console.WriteLine($"noorim on {nimed[noorim]} ta on {vanused[noorim]} aastane");
+            Console.WriteLine($"vanim on {nimed[vanim]} ta on {vanused[vanim]} aastane");
 
         }
     }
