@@ -1,0 +1,60 @@
+Array		tavaline massiiv int[], string[], ....
+
+List<T>		List<int>
+SortedSet<T>	SortedSet<int>
+HashSet<T>		HashSet<int>
+
+	List - lubab korduvaid, teised kaks ei luba
+	Teised kaks - neil on Add kõrval ka TryAdd
+	kõigil on Add, Remove, RemoveAt
+	kõigil on arvuline index [int]
+	kõigilt saab küsida Contains
+	Kõigil on Count 
+
+Stack<T>	viimane tulija esimesena läheb		LIFO
+Queue<T>	esimesena tulija esimesena läheb	FIFO
+		Stackil on Add-Remove asemel Push ja Pop (ja Peak)
+		Queuel on Add-Remove asemele Enque ja Deque
+
+Dictionary<TKey,TValue>		Dictionary<String,DateTime>
+SortedList<TKey,TValue>
+SortedDictionary<TKey,TValue>
+
+	kõik kolm on sõnastikud, kust saab võtme järgi otsida
+	kõigil on Add ja TryAdd 
+	kõigil on Remove
+	kõigil on TKey tüüpi index [TKey]
+	
+Dictionary<string,int> vanused = new Dictionary<string,int>
+	{ {"Henn", 66}, ... };
+
+	Console.WriteLine(vanused["Henn"]); // trükib 66
+	vanused["Henn"]++;
+
+foreach(string nimi in vanused.Keys) ....
+foreach(int vanus in vanused.Values) ....
+
+foreach(var x in vanused)
+	ConsoleWriteLine($"isiku {x.Key} vanus on {x.Value}");
+
+Erinevus
+	SortedList ja SortedDictionary - Keys on tähestiku järjekorras
+	Dictionary - Keys on juhuslikus järjekorras
+
+Sarnasus
+	ükski ei luba topeltvõtmeid (kontrolli ContainsKey või lisa indeksi kaudu)
+
+	vanused.Add("Henn", 40); // annab vea
+
+	if(vanused.TryAdd("Henn", 40) {} else { /* teade, et ei lisanud */}
+	vanused["Henn"] = 40; // kirjutab üle, kui ei ole, lisab
+
+	int v = vanused["Henn"]; // kui Hennu ei ole, siis annab vea
+
+	Kõigil on ContainsKey
+	Kõigil on ContainsValue
+
+
+
+
+	

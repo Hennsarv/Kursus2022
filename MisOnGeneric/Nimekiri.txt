@@ -1,0 +1,3 @@
+﻿Henn,67
+Ants,40
+Peeter,28

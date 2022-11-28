@@ -1,0 +1,27 @@
+Sul on kaks faili
+
+Õpetajad ja Õpilased (kopeeri nad oma rakenduse kausta - lihtsam)
+
+Tee omale Dictionary, mis sisaldab mõlemaid
+Võtmeks on isikukood
+
+Objektiks on (mõtle ise kas kasutad klassi, struktuuri või anonüümset tüüpi)
+
+	IK - isikukood
+	Nimi
+	Kus klassis õpib (õpilastel)
+	Mis klassi juhatab (õpetajatel)
+	Mis ainet õpetab (õpetajatel)
+	MIski tunnus, kas on õpilane või õpetaja
+
+Anna võimalus välja trükkida (valik) 
+Õpilaste nimekiri
+Õpetajate nimekiri
+Klasside nimekiri (ja õpilaste arv klassis)
+Klassi nimekiri koos klassijuhatajaga (küsi mis klassi tahad)
+
+Teeme samm haaval (siis kinnistub räägitu)
+
+1. NImekirjade failist sisselugemine (kontrolli, et toimib
+2. Üks haaval erinevad väljatrükid
+3. Kontroller moodi moodustis sinna ümber (Menüü, et mida teeme)

@@ -1,0 +1,4 @@
+36003030000, Mati Maasikas, matemaatika
+36004040000, Riho Raasukas, joonistamine, 1B
+46005050000, Maali Murakas, laulmine
+46006060000, Evi Tark, eesti keel, 2A
