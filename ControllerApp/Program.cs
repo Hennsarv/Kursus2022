@@ -50,7 +50,7 @@ namespace ControllerApp
         {
             for (var r = Menüüst("mis teeme"); r != ""; r = Menüüst("mis edasi"))
             {
-                switch (r)
+                switch (r.ToLower())
                 {
                     #region näidiskeisid
                     case "1":
@@ -82,10 +82,12 @@ namespace ControllerApp
                         foreach(var x in sisu) 
                         {
                             var o = x.Split(',');
-                            Inimene i = new Inimene();
-                            i.Eesnimi = o[0].Trim();
-                            i.Perenimi= o[1].Trim();
-                            i.Vanus = int.Parse(o[2].Trim());
+                            Inimene i = new Inimene
+                            {
+                                Eesnimi = o[0].Trim(),
+                                Perenimi = o[1].Trim(),
+                                Vanus = int.Parse(o[2].Trim())
+                            };
                             inimesed.Add(i);
                         }
                         foreach (var x in inimesed) Console.WriteLine(x);
