@@ -89,6 +89,27 @@ namespace Kollektsioonid
             // Dictionary.keys - võtmed
             // Dictionary.values - väärtused
 
+
+            Dictionary<(string, string), DateTime> sp = new Dictionary<(string, string), DateTime>
+            {
+                { ("Henn", "Sarv"), new DateTime(1955,3,7) },
+                { ("Ants", "Saunamees"), new DateTime(1955,3,7) },
+                { ("Peeter", "Suur"), new DateTime(1955,3,7) },
+                { ("Toomas", "Linnupoeg"), new DateTime(1955,3,7) },
+            };
+
+            Console.WriteLine(sp[("Henn", "Sarv")].DayOfWeek);
+
+            // sorted dictionary
+            SortedDictionary<string, DateTime> sünnipäevad2 =
+                new SortedDictionary<string, DateTime>
+                {
+                    { "Henn", new DateTime(1955, 3, 7) },
+                    { "Ants", new DateTime(1960, 7, 20) },
+                    { "Peeter", new DateTime(1940, 1, 8) },
+                    { "Joosep", new DateTime(2000, 2, 29) },
+                };
+            // tavaline dictionary
             Dictionary<string, DateTime> sünnipäevad =
                 new Dictionary<string, DateTime>
                 {
@@ -98,7 +119,12 @@ namespace Kollektsioonid
                     { "Joosep", new DateTime(2000, 2, 29) },
                 };
 
-            Console.WriteLine(sünnipäevad["Henn"].DayOfWeek);
+            Console.WriteLine("\ntavaline dictionary\n");
+            foreach (var x in sünnipäevad.Keys) Console.WriteLine(x);
+            Console.WriteLine("\nsorted dictionary\n");
+            foreach (var x in sünnipäevad2.Keys) Console.WriteLine(x);
+
+            
 
 
 
