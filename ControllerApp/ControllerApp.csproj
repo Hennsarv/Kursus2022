@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="andmed.txt" />
+    <Content Include="tulemus.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
