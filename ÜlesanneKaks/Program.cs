@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -7,6 +8,38 @@ using System.Threading.Tasks;
 
 namespace ÜlesanneKaks
 {
+    class Inimene
+    {
+        public static List<Inimene> Inimesed = new List<Inimene>();
+        public string IK { get; set;}
+        public string Nimi { get; set;}
+
+        public Inimene() => Inimesed.Add(this); 
+
+        public bool KasÕpetaja => this is Õpetaja;
+        public bool KasÕpilane => this is Õpilane;
+    }
+
+    class Õpilane : Inimene 
+    { 
+        public string Klass { get; set;} // klass kus õpib
+
+        public override string ToString()
+        => $"{Klass} klassi õpilane {Nimi}";
+    }
+
+    class Õpetaja : Inimene
+    {
+        public string Klass { get; set;} // klass, mida juhatab
+        public string Aine { get; set;}
+        public override string ToString()
+        => $"{Aine} õpetaja {Nimi}" + (Klass == "" ? "" : $" ({Klass} klassi juhataja)");
+
+    }
+
+
+
+
     // lisan klasssile static (kuigi ta on niigi static)
     // siis saan samas klassis extensioneid teha
     static internal class Program
@@ -78,7 +111,7 @@ namespace ÜlesanneKaks
 
             // keerukam variant õpilaste nimekirja
             dict.Values
-                .Where(x => !x.KasÕpetaja)
+                .Where(x => !x.KasÕpetaja) // ainult õpilased
                 .GroupBy(x => x.Klass)
                 .ForEach(x =>
                 {
@@ -95,6 +128,25 @@ namespace ÜlesanneKaks
                     x => new {x.Nimi, Amet = (x.KasÕpetaja ? x.MisAine + " õpetaja" : "õpilane")}
                 )
                 .ForEach(x => Console.WriteLine(x));
+
+
+            // teema nad korraks ka läbi klasside
+            dict.Values.ForEach(
+                x =>
+                {
+                    if (x.KasÕpetaja) new Õpetaja
+                    { Nimi = x.Nimi, Aine = x.MisAine, IK = x.IK, Klass = x.Klass };
+                    else new Õpilane
+                    { Nimi = x.Nimi, IK = x.IK, Klass = x.Klass };
+
+                }
+
+                );
+
+            foreach (var inimene in Inimene.Inimesed)
+            {
+                Console.WriteLine(inimene);
+            }
         }
     }
 }
