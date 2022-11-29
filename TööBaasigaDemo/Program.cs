@@ -9,10 +9,23 @@ namespace TööBaasigaDemo
 {
     internal class Program
     {
- 
+        static string connectionString =
+            "Data Source=valiitsql.database.windows.net;" +
+            "Initial Catalog=Northwind;" +
+            "User ID=student;" +
+            "Password=Pa$$w0rd;";
         static void Main(string[] args)
         {
- 
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            string query = 
+                "select productID, productName, unitPrice from products";
+            SqlCommand command = new SqlCommand(query, conn);
+            SqlDataReader R = command.ExecuteReader();
+            while(R.Read())
+            {
+                Console.WriteLine($"toode {R["productName"]} maksab {R["unitPrice"]}");
+            }
         }
     }
 }

@@ -2,3 +2,9 @@ server: valiitsql.database.windows.net
 database: Northwind
 user: Student
 password: Pa$$w0rd
+
+ConnectionString = 
+"Data Source=valiitsql.database.windows.net
+;Initial Catalog=Northwind
+;User ID=student
+;Password=Pa$$w0rd"
