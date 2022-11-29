@@ -18,6 +18,7 @@ namespace EntityFWDemo
         public NorthwindEntities()
             : base("name=NorthwindEntities")
         {
+            
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

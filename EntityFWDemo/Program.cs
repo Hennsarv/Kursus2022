@@ -16,6 +16,8 @@ namespace EntityFWDemo
         static void Main(string[] args)
         {
             NorthwindEntities db = new NorthwindEntities();
+            
+            
             db.Database.Log = Console.WriteLine; // päriselus me seda ei tee
 
             var q = db.Products
@@ -36,6 +38,8 @@ namespace EntityFWDemo
                 .Select(x => new { x.FullName, ManagerName = x.Manager?.FullName??"isejumal" });
 
             foreach (var e in qe) Console.WriteLine(e);
+
+
 
         }
     }
