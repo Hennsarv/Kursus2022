@@ -34,8 +34,15 @@ namespace KlassideTuletamine
 
             foreach (var item in Loom.LoomaAed)
             {
-                if (item is Kass kk) kk.Silita(); 
+                //if (item is Kass kk) kk.Silita(); 
+                (item as Kass)?.Sikuta();
             }
+
+            Loom.LoomaAed
+                .OfType<Kass>()  // .Select(x => x as Kass).Where(x => x != null)
+                .ForEach(x => x.Sikuta());
+
+            Loom.LoomaAed.OfType<ISöödav>().FirstOrDefault()?.Süüakse();
 
             Loom.LoomaAed.ForEach(x => x.TeeHäält());
 
