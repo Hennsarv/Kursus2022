@@ -130,7 +130,7 @@ namespace ÜlesanneKaks
                 .ForEach(x => Console.WriteLine(x));
 
 
-            // teema nad korraks ka läbi klasside
+            // teeme nad korraks ka läbi klasside
             dict.Values.ForEach(
                 x =>
                 {
