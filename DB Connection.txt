@@ -7,8 +7,13 @@ ConnectionString =
 "Data Source=valiitsql.database.windows.net
 ;Initial Catalog=Northwind
 ;User ID=student
-;Password=Pa$$w0rd"
+;Password=parool"
 
 SQLConnection - ühendus
 SQLCommand - minu poolt minev päring või käsk
 SQLDataReader - vastus, mis ma sealt saan
+
+Data Source=(localdb)\mssqllocaldb;Initial Catalog=Northwind;Integrated Security=True
+
+(localdb)\MSSQLLocalDB - sinu kohaliku serveri nimi
+
