@@ -1,0 +1,4 @@
+server: valiitsql.database.windows.net
+database: Northwind
+user: Student
+password: Pa$$w0rd
