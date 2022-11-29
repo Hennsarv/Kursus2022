@@ -24,7 +24,6 @@ namespace EntityFWDemo
         public Nullable<short> UnitsOnOrder { get; set; }
         public Nullable<short> ReorderLevel { get; set; }
         public bool Discontinued { get; set; }
-        public int State { get; set; }
     
         public virtual Category Category { get; set; }
     }

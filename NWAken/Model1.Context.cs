@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EntityFWDemo
+namespace NWAken
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class NorthwindEntities1 : DbContext
+    public partial class NorthwindEntities : DbContext
     {
-        public NorthwindEntities1()
-            : base("name=NorthwindEntities1")
+        public NorthwindEntities()
+            : base("name=NorthwindEntities")
         {
         }
     
@@ -25,8 +25,6 @@ namespace EntityFWDemo
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Category> Categories { get; set; }
-        public virtual DbSet<Employee> Employees { get; set; }
-        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
     }
 }

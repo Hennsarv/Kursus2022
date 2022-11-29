@@ -17,7 +17,7 @@ namespace EntityFWDemo
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Employee()
         {
-            this.Subordinates = new HashSet<Employee>();
+            this.Employees1 = new HashSet<Employee>();
         }
     
         public int EmployeeID { get; set; }
@@ -40,7 +40,7 @@ namespace EntityFWDemo
         public string PhotoPath { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Employee> Subordinates { get; set; }
-        public virtual Employee Manager { get; set; }
+        public virtual ICollection<Employee> Employees1 { get; set; }
+        public virtual Employee Employee1 { get; set; }
     }
 }
