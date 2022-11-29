@@ -17,3 +17,6 @@ Data Source=(localdb)\mssqllocaldb;Initial Catalog=Northwind;Integrated Security
 
 (localdb)\MSSQLLocalDB - sinu kohaliku serveri nimi
 
+https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/northwind-pubs
+
+siit leiad
