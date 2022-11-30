@@ -17,6 +17,9 @@ namespace MVCjaEntity.Controllers
         {
             ViewBag.Message = "Your application description page.";
 
+            ViewBag.Oluline = "Oluline info";
+            ViewData["veelOlulisem"] = "veel olulisem info";
+
             return View();
         }
 
