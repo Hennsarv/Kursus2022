@@ -6,111 +6,118 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using MVCDemo.Models;
+using MVCjaEntity.Models;
 
-namespace MVCDemo.Controllers
+namespace MVCjaEntity.Controllers
 {
-    public class CustomersController : Controller
+    public class CategoriesController : Controller
     {
-        private NorthwindEntities1 db = new NorthwindEntities1();
+        private NorthwindEntities db = new NorthwindEntities();
 
-        // GET: Customers
+        // GET: Categories
         public ActionResult Index()
         {
-            return View(db.Customers.ToList());
+            return View(db.Categories.ToList());
         }
 
-        // GET: Customers/Details/5
-        public ActionResult Details(string id)
+        // GET: Categories/Details/5
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
+            Category category = db.Categories.Find(id);
+            if (category == null)
             {
-                return RedirectToAction("Index");
+                return HttpNotFound();
             }
-            return View(customer);
+            return View(category);
         }
 
-        // GET: Customers/Create
+        // GET: Categories/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Customers/Create
+        // POST: Categories/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerID,CompanyName,ContactName,ContactTitle,Address,City,Region,PostalCode,Country,Phone,Fax")] Customer customer)
+        public ActionResult Create([Bind(Include = "CategoryID,CategoryName,Description,Picture")] Category category)
         {
             if (ModelState.IsValid)
             {
-                db.Customers.Add(customer);
+                db.Categories.Add(category);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(customer);
+            return View(category);
         }
 
-        // GET: Customers/Edit/5
-        public ActionResult Edit(string id)
+        // GET: Categories/Edit/5
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
+            Category category = db.Categories.Find(id);
+            if (category == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(category);
         }
 
-        // POST: Customers/Edit/5
+        // POST: Categories/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustomerID,CompanyName,ContactName,ContactTitle,Address,City,Region,PostalCode,Country,Phone,Fax")] Customer customer)
+        public ActionResult Edit([Bind(Include = "CategoryID,CategoryName,Description,Picture")] Category category)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(customer).State = EntityState.Modified;
+                // kui ma mõne elemendi eemaldan Edit vormilt
+                // siis on oluline et vastav property muudatus ette
+                // tühistada - et ei juhtuks jama
+                var cat = db.Entry(category);
+                cat.State = EntityState.Modified;
+                cat.Property(x => x.Picture).IsModified = false;
+                
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(customer);
+            return View(category);
         }
 
-        // GET: Customers/Delete/5
-        public ActionResult Delete(string id)
+        // GET: Categories/Delete/5
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
+            Category category = db.Categories.Find(id);
+            if (category == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(category);
         }
 
-        // POST: Customers/Delete/5
+        // POST: Categories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            Customer customer = db.Customers.Find(id);
-            db.Customers.Remove(customer);
+            Category category = db.Categories.Find(id);
+            db.Categories.Remove(category);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

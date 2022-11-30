@@ -10,7 +10,7 @@ namespace MVCDemo.Controllers
     public class InimeneController : Controller
     {
         // GET: Inimene
-        public ActionResult Index()
+        public ActionResult Index()  // list
         {
             var inimesed = Inimene
                 .Inimesed
@@ -20,7 +20,7 @@ namespace MVCDemo.Controllers
         }
 
         // GET: Inimene/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int id)  // READ
         {
             var inimene = Inimene.Inimesed[id];
             return View(inimene);
