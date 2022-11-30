@@ -15,7 +15,7 @@ namespace Veatöötlus
 
             while (true)
             {
-                try
+                try // siin plokis me püüame vead kinni ja anname catchidele
                 {
                     Console.Write("Anna üks arv: ");
                     int üks = int.Parse(Console.ReadLine());
