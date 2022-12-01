@@ -15,13 +15,27 @@ namespace MVCjaEntity.Controllers
         private NorthwindEntities db = new NorthwindEntities();
 
         // GET: Categories
-        public ActionResult Index()
+        public ActionResult Index(int id = 0, string nimi = "")
         {
-            return View(db.Categories.ToList());
+            return View(db.Categories
+                .Where(x => (id == 0) || (x.CategoryID == id))
+                .ToList()
+                .Where(x => (nimi == "") || (x.CategoryName.Substring(0,nimi.Length) == nimi))
+                .ToList());
+        }
+
+        public ActionResult Tooted(int id = 0)
+        {
+            var products = db.Products.Include(p => p.Category)
+                .Where(x => (id) == 0 || x.CategoryID == id)
+                ;
+
+            // Näide, kuidas viidata hoopis teises sahtlis olevale Viewle
+            return View("../Products/Index",products.ToList());
         }
 
         // GET: Categories/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id)    
         {
             if (id == null)
             {

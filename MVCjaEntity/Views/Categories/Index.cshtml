@@ -33,13 +33,18 @@
         </td>
         @*<td>
             @Html.DisplayFor(modelItem => item.Picture)
+            http://localhost:55499/Categories/Index/3?a=77
         </td>*@
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CategoryID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CategoryID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CategoryID })
+            @Html.ActionLink("Muuda", "Edit", new { id = item.CategoryID, nimi = "Henn", vanus = 67 }) |
+            @Html.ActionLink("Näita", "Details", new { id = item.CategoryID }) |
+            @Html.ActionLink("Kustuta", "Delete", new { id = item.CategoryID }) |
+            <a href="@Url.Action("Index", new {id=item.CategoryID, a=77})">Tooted</a>
         </td>
     </tr>
 }
 
 </table>
+
+<p>JUhend:</p>
+<p>Kui sa tahad võid kasutada aadressi @Url.Action("Index", new { id = 7, a = 77 })</p>
