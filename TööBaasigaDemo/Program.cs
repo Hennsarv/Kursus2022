@@ -16,16 +16,30 @@ namespace TööBaasigaDemo
             "Password=Pa$$w0rd;";
         static void Main(string[] args)
         {
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
+            //SqlConnection conn = new SqlConnection(connectionString);
+            //conn.Open();
             string query = 
                 "select productID, productName, unitPrice from products";
-            SqlCommand command = new SqlCommand(query, conn);
-            SqlDataReader R = command.ExecuteReader();
-            while(R.Read())
+            //SqlCommand command = new SqlCommand(query, conn);
+            //SqlDataReader R = command.ExecuteReader();
+            //while(R.Read())
+            //{
+            //    Console.WriteLine($"toode {R["productName"]} maksab {R["unitPrice"]}");
+            //}
+
+            using(var conn = new SqlConnection(connectionString))
             {
-                Console.WriteLine($"toode {R["productName"]} maksab {R["unitPrice"]}");
+                conn.Open();
+                using(var cmd = new SqlCommand(query, conn)) 
+                { 
+                    var R = cmd.ExecuteReader();
+                    while(R.Read())
+                    {
+                        Console.WriteLine($"toode {R["productName"]} maksab {R["unitPrice"]}");
+                    }
+                }
             }
+
         }
     }
 }

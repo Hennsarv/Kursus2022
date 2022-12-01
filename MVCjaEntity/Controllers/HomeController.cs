@@ -29,5 +29,14 @@ namespace MVCjaEntity.Controllers
 
             return View();
         }
+
+        public ActionResult Test(int a = 0, int b = 0, int c = 0) 
+        { 
+            ViewBag.a = a; 
+            ViewBag.b = b;
+            ViewBag.c = c;
+            ViewBag.Teade = $"a={a} b={b} c={c} summa={a+b}";
+            return View();
+        }
     }
 }

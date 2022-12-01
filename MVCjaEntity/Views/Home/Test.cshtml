@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Test";
+}
+
+<h2>Test</h2>
+<h3>@ViewBag.Teade</h3>
+<form action="@Url.Action("Test")" class="alert-danger" method="get">
+    <input type="number" name="a" value="@ViewBag.a" />
+    <input type="number" name="b" value="@ViewBag.b" />
+    <input type="number" name="c" value="@ViewBag.c"/>
+    <input type="submit" />
+</form>
+

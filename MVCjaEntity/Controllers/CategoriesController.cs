@@ -31,10 +31,14 @@ namespace MVCjaEntity.Controllers
         {
             var cat = db.Categories.Find(id);
             if (cat == null) return HttpNotFound();
+            if(cat.Picture == null || cat.Picture.Length == 0) 
+                return HttpNotFound();   
             byte[] pilt = cat.Picture;
+            
             // järgmine rida on seotud NW andmebaasi ajalooga
             // need pildid mis seal ON on vähe vigased
             if (pilt[0] == 21) pilt = pilt.Skip(78).ToArray();
+            
             return File(pilt, "image/jpg");
         }
 
