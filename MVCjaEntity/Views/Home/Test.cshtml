@@ -5,10 +5,20 @@
 
 <h2>Test</h2>
 <h3>@ViewBag.Teade</h3>
-<form action="@Url.Action("Test")" class="alert-danger" method="get">
-    <input type="number" name="a" value="@ViewBag.a" />
+<h3>@ViewBag.Tere</h3>
+@using (Html.BeginForm("Test","Home",FormMethod.Post, new { }))
+{
+    <input type="number" name="a" id="a" value="@ViewBag.a" />
+    <br />
     <input type="number" name="b" value="@ViewBag.b" />
-    <input type="number" name="c" value="@ViewBag.c"/>
-    <input type="submit" />
-</form>
+    <br />
+    <input type="hidden" name="c" id="c" value="@ViewBag.c" />
+    <br />
+    <input type="text" name="nimi" id="nimi" value="" />
+    <br />
+    <input type="submit" class="alert-danger" />
+    <br />
+}
+@*<form action="@Url.Action("Test", new { nimi="tundmatu" })" method="post">
+</form>*@
 

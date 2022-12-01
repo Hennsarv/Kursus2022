@@ -30,12 +30,13 @@ namespace MVCjaEntity.Controllers
             return View();
         }
 
-        public ActionResult Test(int a = 0, int b = 0, int c = 0) 
+        public ActionResult Test(int a = 0, int b = 0, int c = 0, string nimi = "") 
         { 
             ViewBag.a = a; 
             ViewBag.b = b;
             ViewBag.c = c;
             ViewBag.Teade = $"a={a} b={b} c={c} summa={a+b}";
+            ViewBag.Tere = nimi == "" ? "" : $"Tere {nimi}!";
             return View();
         }
     }

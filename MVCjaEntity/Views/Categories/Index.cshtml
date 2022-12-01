@@ -32,7 +32,10 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            <img src="@Url.Action("Picture", new {id = item.CategoryID})" />
+            <img src="@Url.Action("Picture", new {id = item.CategoryID})" 
+                 alt="pilti põle"
+                 height="100"
+                 /><!--et kui pilti ei ole (not found vms viga)-->
 
         </td>
         <td>

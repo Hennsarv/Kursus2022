@@ -32,7 +32,7 @@ namespace MVCjaEntity.Controllers
             var cat = db.Categories.Find(id);
             if (cat == null) return HttpNotFound();
             if(cat.Picture == null || cat.Picture.Length == 0) 
-                return HttpNotFound();   
+                return new HttpNotFoundResult { };   
             byte[] pilt = cat.Picture;
             
             // järgmine rida on seotud NW andmebaasi ajalooga
@@ -111,7 +111,9 @@ namespace MVCjaEntity.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CategoryID,CategoryName,Description,Picture")] Category category)
+        public ActionResult Edit(
+            [Bind(Include = "CategoryID,CategoryName,Description")] Category category, 
+            HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
@@ -122,8 +124,19 @@ namespace MVCjaEntity.Controllers
                 cat.State = EntityState.Modified;
                 cat.Property(x => x.Picture).IsModified = false;
                 
-
+                //db.SaveChanges();
+                if((file?.ContentLength??0) > 0)
+                {
+                    using(System.IO.BinaryReader br = 
+                        new System.IO.BinaryReader(file.InputStream))
+                    {
+                        byte[] buff = br.ReadBytes(file.ContentLength);
+                        category.Picture = buff;
+                        
+                    }
+                }
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
             return View(category);
