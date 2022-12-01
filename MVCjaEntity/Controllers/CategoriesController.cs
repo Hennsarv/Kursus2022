@@ -19,14 +19,29 @@ namespace MVCjaEntity.Controllers
         {
             return View(db.Categories
                 .Where(x => (id == 0) || (x.CategoryID == id))
-                .ToList()
+                // .ToList() // seda on vaja, kui keerukat Where'i ei saa SQL keeles kirjutada
+                // seda .tolisti siia vahele pole vaja
+                // kuna tark SQLi mees oskab ka selle alumise asja
+                // teha SQL lauseks
                 .Where(x => (nimi == "") || (x.CategoryName.Substring(0,nimi.Length) == nimi))
                 .ToList());
         }
 
-        public ActionResult Tooted(int id = 0)
+        public ActionResult Picture(int id = 0)
+        {
+            var cat = db.Categories.Find(id);
+            if (cat == null) return HttpNotFound();
+            byte[] pilt = cat.Picture;
+            // järgmine rida on seotud NW andmebaasi ajalooga
+            // need pildid mis seal ON on vähe vigased
+            if (pilt[0] == 21) pilt = pilt.Skip(78).ToArray();
+            return File(pilt, "image/jpg");
+        }
+
+        public ActionResult Tooted(int id = 0, string nimi = "")
         {
             var products = db.Products.Include(p => p.Category)
+                .Where(x => (nimi == "") || (x.ProductName.Substring(0, nimi.Length) == nimi))
                 .Where(x => (id) == 0 || x.CategoryID == id)
                 ;
 

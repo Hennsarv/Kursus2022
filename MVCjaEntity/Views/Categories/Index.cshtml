@@ -17,9 +17,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
-        @*<th>
+        <th>
             @Html.DisplayNameFor(model => model.Picture)
-        </th>*@
+        </th>
         <th></th>
     </tr>
 
@@ -31,15 +31,16 @@
         <td>
             @Html.DisplayFor(modelItem => item.Description)
         </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.Picture)
-            http://localhost:55499/Categories/Index/3?a=77
-        </td>*@
+        <td>
+            <img src="@Url.Action("Picture", new {id = item.CategoryID})" />
+
+        </td>
         <td>
             @Html.ActionLink("Muuda", "Edit", new { id = item.CategoryID, nimi = "Henn", vanus = 67 }) |
             @Html.ActionLink("Näita", "Details", new { id = item.CategoryID }) |
             @Html.ActionLink("Kustuta", "Delete", new { id = item.CategoryID }) |
-            <a href="@Url.Action("Index", new {id=item.CategoryID, a=77})">Tooted</a>
+            @Html.ActionLink("Tooted", "Tooted", new { id = item.CategoryID})
+            @*<a href="@Url.Action("Index", new {id=item.CategoryID})">Tooted</a>*@
         </td>
     </tr>
 }
