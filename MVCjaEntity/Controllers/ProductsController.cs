@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MVCjaEntity.Models;
+using Newtonsoft.Json;
 
 namespace MVCjaEntity.Controllers
 {
@@ -20,10 +21,13 @@ namespace MVCjaEntity.Controllers
             var products = db.Products.Include(p => p.Category)
                 .Where(x => (id) == 0 || x.CategoryID == id)
                 ;
-
-           
-
             return View(products.ToList());
+        }
+
+        public string IndexJ()
+        {
+            return 
+            Newtonsoft.Json.JsonConvert.SerializeObject(db.Products);
         }
 
         // GET: Products/Details/5
@@ -39,6 +43,18 @@ namespace MVCjaEntity.Controllers
                 return HttpNotFound();
             }
             return View(product);
+        }
+
+        public string DetailsJ(int id = 0)
+        {
+            Product product = db.Products.Find(id);
+            if (product == null)
+            {
+                return "";
+            }
+            
+
+            return JsonConvert.SerializeObject(product);
         }
 
         // GET: Products/Create

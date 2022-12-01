@@ -11,6 +11,7 @@ namespace MVCjaEntity.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Employee
     {
@@ -21,12 +22,18 @@ namespace MVCjaEntity.Models
         }
     
         public int EmployeeID { get; set; }
+        [Required]
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string Title { get; set; }
         public string TitleOfCourtesy { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}",ApplyFormatInEditMode =true)]
         public Nullable<System.DateTime> BirthDate { get; set; }
+        
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode =true)]
         public Nullable<System.DateTime> HireDate { get; set; }
+        
         public string Address { get; set; }
         public string City { get; set; }
         public string Region { get; set; }
