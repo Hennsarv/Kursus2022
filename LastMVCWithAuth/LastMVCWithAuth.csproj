@@ -184,6 +184,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -213,8 +214,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AuthModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>NW.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\NW.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NW.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NW.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NW.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NW.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NW.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>NW.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -237,6 +259,16 @@
       <DependentUpon>AuthModel.edmx</DependentUpon>
       <LastGenOutput>AuthModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\NW.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NW.edmx</DependentUpon>
+      <LastGenOutput>NW.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\NW.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NW.edmx</DependentUpon>
+      <LastGenOutput>NW.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\AuthModel.edmx">
@@ -245,6 +277,13 @@
     </EntityDeploy>
     <Content Include="Models\AuthModel.edmx.diagram">
       <DependentUpon>AuthModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\NW.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NW.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\NW.edmx.diagram">
+      <DependentUpon>NW.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -301,6 +340,11 @@
     <Content Include="Views\Roles\Details.cshtml" />
     <Content Include="Views\Roles\Edit.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\Delete.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

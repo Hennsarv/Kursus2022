@@ -32,12 +32,10 @@ namespace LastMVCWithAuth.Controllers
             {
                 return HttpNotFound();
             }
-
+            var rollid = aspNetUser.AspNetRoles.Select(x => x.Name).ToList();
             ViewBag.Roles = db.AspNetRoles.ToList()
-                .Where(x => !aspNetUser
-                                .AspNetRoles
-                                .Select(y => x.Name)
-                                .Contains(x.Name));
+
+                .Where(x => !rollid.Contains(x.Name));
             return View(aspNetUser);
         }
 

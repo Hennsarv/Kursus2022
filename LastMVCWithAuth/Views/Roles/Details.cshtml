@@ -24,3 +24,9 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+<h3>Selles rollis on:</h3>
+@foreach(var u in Model.AspNetUsers)
+            {
+                <p>@u.Email</p>
+            }

@@ -104,16 +104,26 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
-<table >
+<table>
     <tr style="vertical-align:top">
         <td class="col-md-6">
             <h3>Kasutajal on sellised rollid:</h3>
 
             @foreach (var role in Model.AspNetRoles.ToList())
             {
-                <p>
-                    @Html.ActionLink("(-) " + role.Name, "RemoveRole", new { id = Model.Id, roleId = role.Id })
-                </p>
+                if (User.IsInRole("admin"))
+                {
+                    <p>
+                        @Html.ActionLink("(-) " + role.Name, "RemoveRole", new { id = Model.Id, roleId = role.Id })
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        @(role.Name)
+                    </p>
+                }
+
             }
         </td>
         <td class="col-md-6">
@@ -121,9 +131,18 @@
             <h3>Üldse on meil selllised rollid:</h3>
             @foreach (LastMVCWithAuth.Models.AspNetRole role in ViewBag.Roles)
             {
-                <p>
-                    @Html.ActionLink("(+) " + role.Name, "AddRole", new { id = Model.Id, roleId = role.Id })
-                </p>
+                if (User.IsInRole("admin"))
+                {
+                    <p>
+                        @Html.ActionLink("(+) " + role.Name, "AddRole", new { id = Model.Id, roleId = role.Id })
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        @role.Name
+                    </p>
+                }
             }
         </td>
     </tr>
